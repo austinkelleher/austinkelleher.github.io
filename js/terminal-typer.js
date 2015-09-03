@@ -9,7 +9,10 @@ $(function(){
         cursorChar: "",
         contentType: 'html',
         strings: ['vi austin.js'],
-        typeSpeed: 0
+        typeSpeed: 0,
+        onStringTyped: function() {
+            $("#vi-file-name").text('"austin.js" [New File]');
+        }
     });
 
     var typedEles = [
@@ -41,7 +44,7 @@ $(function(){
                 }
             });
         }());
-    }, 1200);
+    }, 1500);
 
     $("#window").draggable({
         handle: "#toolbar"
