@@ -17,8 +17,6 @@ $(function(){
 
     var completeTyped = 0;
 
-
-
     setTimeout(function() {
         $("#vi-file-name").text('-- INSERT --');
 
