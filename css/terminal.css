@@ -13,6 +13,14 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.vi-data {
+    position: absolute;
+    bottom: 0px;
+    left: 6px;
+    font-size: 13px;
+    font-family: Andale Mono, monospace;
+}
+
 /* FINDER WINDOW */
 
 #window {

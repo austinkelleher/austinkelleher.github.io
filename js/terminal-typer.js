@@ -17,17 +17,23 @@ $(function(){
 
     var completeTyped = 0;
 
-    (function typeEle() {
-        $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
-        $("#element-" + completeTyped).typed({
-            cursorChar: "",
-            contentType: 'html',
-            strings: [typedEles[completeTyped]],
-            typeSpeed: 0,
-            onStringTyped: function() {
-                completeTyped++;
-                typeEle();
-            },
-        });
-    }());
+
+
+    setTimeout(function() {
+        $("#vi-file-name").text('-- INSERT --');
+
+        (function typeEle() {
+            $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
+            $("#element-" + completeTyped).typed({
+                cursorChar: "",
+                contentType: 'html',
+                strings: [typedEles[completeTyped]],
+                typeSpeed: 0,
+                onStringTyped: function() {
+                    completeTyped++;
+                    typeEle();
+                },
+            });
+        }());
+    }, 1200);
 });
