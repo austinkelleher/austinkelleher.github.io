@@ -1,9 +1,5 @@
-/** Adopted from http://cssdeck.com/labs/pure-css-osx-terminal */
-body {
-    background:#d2dfe6;
-    color: #444;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 1.5em;
+#typed-elements a:visited {
+  color:blue;
 }
 
 .centered {
@@ -19,6 +15,14 @@ body {
     left: 6px;
     font-size: 13px;
     font-family: Andale Mono, monospace;
+}
+
+/** Adopted from http://cssdeck.com/labs/pure-css-osx-terminal */
+body {
+    background:#d2dfe6;
+    color: #444;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.5em;
 }
 
 /* FINDER WINDOW */
