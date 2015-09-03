@@ -43,5 +43,7 @@ $(function(){
         }());
     }, 1200);
 
-    $("#window").draggable();
+    $("#window").draggable({
+        handle: "#toolbar"
+    });
 });
