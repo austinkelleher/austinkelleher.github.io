@@ -38,7 +38,7 @@ $(function(){
                 onStringTyped: function() {
                     completeTyped++;
                     typeEle();
-                },
+                }
             });
         }());
     }, 1200);
