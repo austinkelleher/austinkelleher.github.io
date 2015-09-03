@@ -1,3 +1,3 @@
-# austinkelleher.com / austinkelleher.github.io
+# Austin Kelleher
 
-Vist me [here](https://austinkelleher.github.io)
+[austinkelleher.github.io](https://austinkelleher.github.io)
