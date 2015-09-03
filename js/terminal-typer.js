@@ -42,4 +42,6 @@ $(function(){
             });
         }());
     }, 1200);
+
+    $("#window").draggable();
 });
