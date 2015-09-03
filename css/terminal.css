@@ -394,7 +394,7 @@ body {
     line-height:1.5em;
 }
 
-#body p {
+#body span {
    color: #63de00!important;
 }
 
@@ -431,14 +431,14 @@ body {
     -moz-animation-iteration-count: infinite;
 }
 
-#body p::-webkit-selection  {
+#body span::-webkit-selection  {
     background:#0b209e;
 }
 
-#body p::selection { background:#0b209e; }
-#body p::-moz-selection { background:#0b209e; }
+#body span::selection { background:#0b209e; }
+#body span::-moz-selection { background:#0b209e; }
 
-#body p {
+#body span {
   margin-top:5px;
   margin-bottom:5px;
   font-size:13px;

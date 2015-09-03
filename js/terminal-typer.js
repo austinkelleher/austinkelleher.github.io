@@ -3,7 +3,15 @@ function generateTypedEle(prop, val) {
 }
 
 $(function(){
-    $("#terminal-begin-text").html("Last login: " + new Date().toUTCString() + " on ttys006 <br /> Austins-MacBook-Pro:~ austin$ vi austin.js");
+    $("#terminal-begin-text").html("Last login: " + new Date().toUTCString() + " on ttys006 <br /> Austins-MacBook-Pro:~ austin$");
+
+    $("#vi-begin-text").typed({
+        cursorChar: "",
+        contentType: 'html',
+        strings: ['vi austin.js'],
+        typeSpeed: 0
+    });
+
     var typedEles = [
         "module.exports = {",
             generateTypedEle('name', "'austin kelleher',"),
