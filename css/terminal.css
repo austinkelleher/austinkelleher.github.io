@@ -171,8 +171,8 @@ body {
 .red .glyph {
     position: relative;
     top: -6px;
-    left: 3px;
-    font-size: 14px;
+    left: 4px;
+    font-size: 11px;
     font-weight: bold;
     color: #9b3a36;
     z-index: 50;
@@ -214,9 +214,9 @@ body {
 
 .yellow .glyph {
     position: relative;
-    top: -8px;
-    left: 3px;
-    font-size: 24px;
+    top: -7px;
+    left: 5px;
+    font-size: 15px;
     color: #854322;
     z-index: 50;
     opacity: 0;
@@ -257,9 +257,9 @@ body {
 
 .green .glyph {
     position: relative;
-    top: -6px;
+    top: -7px;
     left: 3px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: #25571d;
     z-index: 50;
