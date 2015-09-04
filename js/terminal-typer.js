@@ -5,16 +5,6 @@ function generateTypedEle(prop, val) {
 $(function(){
     $("#terminal-begin-text").html("Last login: " + new Date().toUTCString() + " on ttys006 <br /> Austins-MacBook-Pro:~ austin$");
 
-    $("#vi-begin-text").typed({
-        cursorChar: "",
-        contentType: 'html',
-        strings: ['vi austin.js'],
-        typeSpeed: 0,
-        onStringTyped: function() {
-            $("#vi-file-name").text('"austin.js" [New File]');
-        }
-    });
-
     var typedEles = [
         "module.exports = {",
             generateTypedEle('name', "'austin kelleher',"),
@@ -26,24 +16,40 @@ $(function(){
         "};"
     ];
 
-    var completeTyped = 0;
-
     setTimeout(function() {
-        $("#vi-file-name").text('-- INSERT --');
+        $("#vi-begin-text").typed({
+            cursorChar: "",
+            contentType: 'html',
+            strings: ['vi austin.js'],
+            typeSpeed: 0,
+            onStringTyped: function() {
+                setTimeout(function() {
+                    $("#vi-begin-text").hide();
+                    $("#terminal-begin-text").hide();
+                    $("#vi-file-name").text('"austin.js" [New File]');
 
-        (function typeEle() {
-            $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
-            $("#element-" + completeTyped).typed({
-                cursorChar: "",
-                contentType: 'html',
-                strings: [typedEles[completeTyped]],
-                typeSpeed: 0,
-                onStringTyped: function() {
-                    completeTyped++;
-                    typeEle();
-                }
-            });
-        }());
+                    var completeTyped = 0;
+
+                    setTimeout(function() {
+                        $("#vi-file-name").text('-- INSERT --');
+
+                        (function typeEle() {
+                            $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
+                            $("#element-" + completeTyped).typed({
+                                cursorChar: "",
+                                contentType: 'html',
+                                strings: [typedEles[completeTyped]],
+                                typeSpeed: 0,
+                                onStringTyped: function() {
+                                    completeTyped++;
+                                    typeEle();
+                                }
+                            });
+                        }());
+                    }, 1500);
+                }, 500);
+            }
+        });
     }, 1500);
 
     $("#window").draggable({
