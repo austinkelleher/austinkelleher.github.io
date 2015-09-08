@@ -16,41 +16,60 @@ $(function(){
         "};"
     ];
 
-    setTimeout(function() {
-        $("#vi-begin-text").typed({
-            cursorChar: "",
-            contentType: 'html',
-            strings: ['vi austin.js'],
-            typeSpeed: 0,
-            onStringTyped: function() {
-                setTimeout(function() {
-                    $("#vi-begin-text").hide();
-                    $("#terminal-begin-text").hide();
-                    $("#vi-file-name").text('"austin.js" [New File]');
+    async.series([
+        // Begin typing out `vi austin.js` after waiting 1.5s
+        function(callback) {
+            setTimeout(function() {
+                $("#vi-begin-text").typed({
+                    cursorChar: "",
+                    contentType: 'html',
+                    strings: ['vi austin.js'],
+                    typeSpeed: 0,
+                    onStringTyped: function() {
+                        callback();
+                    }
+                });
+            }, 1500);
+        },
 
-                    var completeTyped = 0;
+        // Show the initial vi text on the terminal denoting that a new file
+        // has been created
+        function(callback) {
+            setTimeout(function() {
+                $("#vi-begin-text").hide();
+                $("#terminal-begin-text").hide();
+                $("#vi-file-name").text('"austin.js" [New File]');
+                callback();
+            }, 500);
+        },
 
-                    setTimeout(function() {
-                        $("#vi-file-name").text('-- INSERT --');
+        // vi insert mode and type each element out to it
+        function(callback) {
+            var indexTypedEles = typedEles.length - 1;
+            var completeTyped = 0;
 
-                        (function typeEle() {
-                            $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
-                            $("#element-" + completeTyped).typed({
-                                cursorChar: "",
-                                contentType: 'html',
-                                strings: [typedEles[completeTyped]],
-                                typeSpeed: 0,
-                                onStringTyped: function() {
-                                    completeTyped++;
-                                    typeEle();
-                                }
-                            });
-                        }());
-                    }, 1500);
-                }, 500);
-            }
-        });
-    }, 1500);
+            setTimeout(function() {
+                $("#vi-file-name").text('-- INSERT --');
+
+                (function typeEle() {
+                    $("#typed-elements").append("<div id='element-" + completeTyped + "' class='element'></div>");
+                    $("#element-" + completeTyped).typed({
+                        cursorChar: "",
+                        contentType: 'html',
+                        strings: [typedEles[completeTyped]],
+                        typeSpeed: 0,
+                        onStringTyped: function() {
+                            if (++completeTyped > indexTypedEles) {
+                                callback();
+                            } else {
+                                typeEle();
+                            }
+                        }
+                    });
+                }());
+            }, 1500);
+        }
+    ]);
 
     $("#window").draggable({
         handle: "#toolbar"
