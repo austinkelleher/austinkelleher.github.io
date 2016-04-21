@@ -7,7 +7,7 @@
     'cursor': 'pointer',
     'width': 500,
     'height': 500,
-    'opacity': 0,
+    //'opacity': 0,
     'position': 'absolute'
   };
 
