@@ -13,7 +13,7 @@
 
   var e = document.createElement('iframe');
   e.id = frameId;
-  e.src = 'https://github.com';
+  e.src = 'https://en.wikipedia.org/wiki/W3Schools';
 
   for (var prop in styles) {
     if (styles.hasOwnProperty(prop)) {
