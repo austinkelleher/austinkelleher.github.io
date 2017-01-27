@@ -1,3 +1,4 @@
 {
-  "PHASE": "NOT_STARTED"
+  "PHASE": "STARTED",
+  "redirect": "https://google.com"
 }
