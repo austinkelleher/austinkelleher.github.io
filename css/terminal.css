@@ -1,3 +1,7 @@
+#typed-elements a {
+    text-decoration:none !important;
+}
+
 #typed-elements a:visited {
   color:blue;
 }
@@ -17,6 +21,10 @@
     left: 6px;
     font-size: 13px;
     font-family: Andale Mono, monospace;
+}
+
+.vi-line {
+    padding-left:3em;
 }
 
 /** Adopted from http://cssdeck.com/labs/pure-css-osx-terminal */
@@ -389,7 +397,7 @@ body {
     -webkit-box-shadow:0px 3px 4px rgba(0,0,0,0.6) inset !important;
 }
 
-#body {
+#terminal-body {
     font-family: Andale Mono, monospace;  line-height: 1em;
     font-size:13px;
     float: left;
@@ -401,35 +409,34 @@ body {
     line-height:1.5em;
 }
 
-#body span {
+#terminal-body span {
    color: #C7C7C7!important;
 }
 
-@keyframes blink
-{
-	0%   {  background:rgba(99,222,0,100);  }
-	100% {  background:rgba(99,222,0,0);  }
+@keyframes blink {
+    0%   {  background:rgba(99,222,0,100);  }
+    100% {  background:rgba(99,222,0,0);  }
 }
 
 @-webkit-keyframes blink {
-	0%   {  background:rgba(99,222,0,100);  }
-	100% {  background:rgba(99,222,0,0);  }
+    0%   {  background:rgba(99,222,0,100);  }
+    100% {  background:rgba(99,222,0,0);  }
 }
 
 @-moz-keyframes blink {
-	0%   {  background:rgba(99,222,0,100);  }
-	100% {  background:rgba(99,222,0,0);  }
+    0%   {  background:rgba(99,222,0,100);  }
+    100% {  background:rgba(99,222,0,0);  }
 }
 
 .cursor {
   background:#63de00;
   display:inline-block;
-  width:11px;
+  width:8px;
   height:19px;
-  margin-bottom:-3px;
+  margin-bottom:-5px;
 }
 
-#body:hover .cursor {
+#terminal-body .cursor {
     -webkit-animation-name: blink;
     -webkit-animation-duration: 1.5s;
     -webkit-animation-iteration-count: infinite;
@@ -438,14 +445,14 @@ body {
     -moz-animation-iteration-count: infinite;
 }
 
-#body span::-webkit-selection  {
+#terminal-body span::-webkit-selection  {
     background:#0b209e;
 }
 
-#body span::selection { background:#0b209e; }
-#body span::-moz-selection { background:#0b209e; }
+#terminal-body span::selection { background:#0b209e; }
+#terminal-body span::-moz-selection { background:#0b209e; }
 
-#body span {
+#terminal-body span {
   margin-top:5px;
   margin-bottom:5px;
   font-size:13px;

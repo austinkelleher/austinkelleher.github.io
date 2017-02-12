@@ -1,0 +1,3 @@
+$("#window").draggable({
+    handle: "#toolbar"
+});
