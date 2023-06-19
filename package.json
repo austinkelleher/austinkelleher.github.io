@@ -1,0 +1,29 @@
+{
+  "name": "austinkelleher.github.io",
+  "version": "0.0.0",
+  "description": "Austin Kelleher's personal portfolio website",
+  "scripts": {
+    "build": "rm -rf dist && npx parcel build ./src/index.html",
+    "serve": "npx parcel ./src/index.html",
+    "serve:production": "npm run build && npx serve ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinkelleher/austinkelleher.github.io.git"
+  },
+  "author": "Austin Kelleher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/austinkelleher/austinkelleher.github.io/issues"
+  },
+  "homepage": "https://github.com/austinkelleher/austinkelleher.github.io#readme",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.9.2",
+    "@parcel/transformer-jsonld": "^2.9.2",
+    "parcel": "^2.9.2",
+    "postcss": "^8.4.24",
+    "serve": "^14.2.0",
+    "sharp": "^0.31.3",
+    "tailwindcss": "^3.3.2"
+  }
+}
