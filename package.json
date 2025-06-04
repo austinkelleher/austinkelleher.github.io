@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Austin Kelleher's personal portfolio website",
   "scripts": {
-    "build": "rm -rf dist && npx parcel build ./src/index.html",
-    "serve": "npx parcel ./src/index.html",
+    "build": "rm -rf dist && npx parcel build './src/index.html' './src/*/*.html'",
+    "serve": "npx parcel './src/index.html' './src/*/*.html'",
     "serve:production": "npm run build && npx serve ./dist"
   },
   "repository": {
