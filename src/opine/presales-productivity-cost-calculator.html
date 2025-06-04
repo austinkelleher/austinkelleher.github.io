@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presales Productivity Cost Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .calculator {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        max-width: 400px;
+        width: 100%;
+      }
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: #111;
+      }
+      label {
+        display: block;
+        margin: 0.75rem 0 0.25rem;
+        color: #333;
+        font-weight: 500;
+      }
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        background: #4310eb;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .reset {
+        background: #e0e0e0;
+        color: #000;
+      }
+      .result {
+        margin-top: 1rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #222;
+      }
+      .math-details {
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h2>Presales Manual Work Cost Calculator</h2>
+      <label for="numSEs">Number of SEs</label>
+      <input type="number" id="numSEs" placeholder="e.g. 10" />
+
+      <label for="avgSalary">Average Salary per SE</label>
+      <input
+        type="text"
+        id="avgSalary"
+        placeholder="$120,000"
+        oninput="formatSalaryInput(this)"
+      />
+
+      <button onclick="calculateCost()">Calculate Annual Cost</button>
+      <button class="reset" onclick="resetCalculator()">Reset</button>
+      <div class="result" id="result"></div>
+      <div class="math-details" id="mathDetails"></div>
+    </div>
+
+    <script>
+      function parseCurrency(value) {
+        return parseFloat(value.replace(/[^\d.-]/g, ""));
+      }
+
+      function formatSalaryInput(input) {
+        let value = parseCurrency(input.value);
+        if (!isNaN(value)) {
+          input.value = `$${value.toLocaleString()}`;
+        } else {
+          input.value = "";
+        }
+      }
+
+      function calculateCost() {
+        const numSEs = parseFloat(document.getElementById("numSEs").value);
+        const avgSalaryRaw = document.getElementById("avgSalary").value;
+        const avgSalary = parseCurrency(avgSalaryRaw);
+        if (isNaN(numSEs) || isNaN(avgSalary)) {
+          document.getElementById("result").textContent =
+            "Please enter valid numbers.";
+          document.getElementById("mathDetails").textContent = "";
+          return;
+        }
+        const weeklyWage = avgSalary / 52;
+        const wastedWeeks = 6.5;
+        const totalCost = numSEs * weeklyWage * wastedWeeks;
+        document.getElementById(
+          "result"
+        ).textContent = `Estimated Annual Cost of Manual Presales Work: $${totalCost.toLocaleString(
+          undefined,
+          { maximumFractionDigits: 0 }
+        )}`;
+        document.getElementById(
+          "mathDetails"
+        ).textContent = `(${numSEs} SEs × $${weeklyWage.toFixed(
+          2
+        )} weekly wage × ${wastedWeeks} weeks)`;
+      }
+
+      function resetCalculator() {
+        document.getElementById("numSEs").value = "";
+        document.getElementById("avgSalary").value = "";
+        document.getElementById("result").textContent = "";
+        document.getElementById("mathDetails").textContent = "";
+      }
+    </script>
+  </body>
+</html>
